@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /kasse.html
+
+Sitemap: https://www.kaleburcu.ch/sitemap.xml

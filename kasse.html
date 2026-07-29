@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="description" content="Kaleburcu Kasse — Kontakt &amp; Lieferung, Versand und Zahlung in drei Schritten.">
+<title>Kasse — Kaleburcu</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=4">
+</head>
+<body class="subpage">
+
+<div class="grain"></div>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu" class="nav-logo-icon"></picture>
+    <span class="nav-logo-text">Kaleburcu</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#produkte">Produkte</a></li>
+    <li><a href="index.html#familie">Familie</a></li>
+    <li><a href="index.html#prozess">Prozess</a></li>
+    <li><a href="index.html#herkunft">Herkunft</a></li>
+    <li><a href="index.html#stimmen">Stimmen</a></li>
+    <li><a href="index.html#b2b">Gastronomie</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#produkte" class="nav-cta">Öl bestellen</a>
+    <button class="cart-btn" id="cartToggle" aria-label="Warenkorb öffnen">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 8V6a3.5 3.5 0 1 1 7 0v2"/></svg>
+      <span class="cart-badge" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="produkte/olivenoel-500ml.html" class="mobile-link">Olivenöl</a>
+  <a href="produkte.html" class="mobile-link">Sortiment</a>
+  <a href="index.html#familie" class="mobile-link">Familie</a>
+  <a href="index.html#prozess" class="mobile-link">Prozess</a>
+  <a href="herkunft.html" class="mobile-link">Herkunft</a>
+  <a href="uber-uns.html" class="mobile-link">Archiv</a>
+  <a href="index.html#b2b" class="mobile-link">Gastronomie</a>
+  <a href="index.html#faq" class="mobile-link">FAQ</a>
+  <a href="tel:+41788111639" class="mobile-tel">078 811 16 39</a>
+</div>
+
+<div class="page-shell">
+  <div class="checkout-head">
+    <h1>Kasse</h1>
+    <a href="produkte.html" class="btn-text">← Weiter einkaufen</a>
+  </div>
+
+  <div class="step-indicator">
+    <div class="step active" id="stepInd1">1 · Kontakt &amp; Lieferung</div>
+    <div class="step" id="stepInd2">2 · Versand</div>
+    <div class="step" id="stepInd3">3 · Zahlung</div>
+  </div>
+
+  <div id="checkoutFormWrap">
+  <div class="checkout-grid">
+    <div>
+      <form id="checkoutForm">
+        <!-- SCHRITT 1 -->
+        <div class="checkout-panel active" id="panel1">
+          <h2>Kontakt &amp; Lieferung</h2>
+          <div class="form-field">
+            <label for="coEmail">E-Mail</label>
+            <input type="email" id="coEmail" required>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="coFirstName">Vorname</label>
+              <input type="text" id="coFirstName" required>
+            </div>
+            <div class="form-field">
+              <label for="coLastName">Nachname</label>
+              <input type="text" id="coLastName" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="coStreet">Strasse &amp; Nr.</label>
+            <input type="text" id="coStreet" required>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="coPlz">PLZ / Ort</label>
+              <input type="text" id="coPlz" required>
+            </div>
+            <div class="form-field">
+              <label for="coPhone">Telefon</label>
+              <input type="tel" id="coPhone" required>
+            </div>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-primary" id="toStep2">Weiter zum Versand</button>
+          </div>
+        </div>
+
+        <!-- SCHRITT 2 -->
+        <div class="checkout-panel" id="panel2">
+          <h2>Versand</h2>
+          <div class="option-rows">
+            <label class="option-row active">
+              <span class="option-row-name">B-Post <span style="color:var(--ink-3)">· 2–4 Werktage</span></span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price" id="bPostPrice">CHF 8.90</span>
+                <input type="radio" name="shipping" value="b-post" checked style="width:auto">
+              </span>
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">A-Post Priority <span style="color:var(--ink-3)">· 1–2 Werktage</span></span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price">CHF 12.90</span>
+                <input type="radio" name="shipping" value="a-post" style="width:auto">
+              </span>
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">Abholung in Meilen</span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price">Gratis</span>
+                <input type="radio" name="shipping" value="abholung" style="width:auto">
+              </span>
+            </label>
+          </div>
+          <div class="form-field" style="margin-top:22px">
+            <label for="coNotes">Anmerkungen (optional)</label>
+            <textarea id="coNotes" rows="3"></textarea>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-text" id="backToStep1">← Zurück</button>
+            <button type="button" class="btn-primary" id="toStep3">Weiter zur Zahlung</button>
+          </div>
+        </div>
+
+        <!-- SCHRITT 3 -->
+        <div class="checkout-panel" id="panel3">
+          <h2>Zahlung</h2>
+          <div class="option-rows">
+            <label class="option-row active">
+              <span class="option-row-name">TWINT <span class="option-row-badge">Empfohlen</span></span>
+              <input type="radio" name="payment" value="TWINT" checked style="width:auto">
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">Karte oder Apple Pay</span>
+              <input type="radio" name="payment" value="Karte / Apple Pay" style="width:auto">
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">Rechnung <span style="color:var(--ink-3)">· 30 Tage</span></span>
+              <input type="radio" name="payment" value="Rechnung (30 Tage)" style="width:auto">
+            </label>
+          </div>
+          <div class="checkout-agb-row">
+            <input type="checkbox" id="coAgb" required>
+            <label for="coAgb" style="text-transform:none;letter-spacing:normal;font-size:13px;color:var(--ink-2);font-weight:300;margin:0">
+              Ich akzeptiere die <a href="agb.html" target="_blank">AGB</a>, die <a href="widerruf.html" target="_blank">Widerrufsbelehrung</a> und die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
+            </label>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-text" id="backToStep2">← Zurück</button>
+            <button type="submit" class="btn-primary" id="checkoutSubmit">Bestellung abschliessen · CHF 0.00</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- BESTELLÜBERSICHT -->
+    <div class="checkout-summary">
+      <div class="checkout-summary-title">Bestellübersicht</div>
+      <div id="checkoutItems"></div>
+      <p id="checkoutEmpty" style="font-size:14px;color:var(--ink-3);padding:20px 0">Ihr Warenkorb ist leer.</p>
+
+      <div id="checkoutFooter" style="display:none">
+        <div class="promo-row">
+          <input type="text" placeholder="Rabattcode" id="promoCode">
+          <button type="button" id="promoBtn">Einlösen</button>
+        </div>
+        <div class="summary-totals">
+          <div class="summary-totals-row"><span>Zwischensumme</span><span id="checkoutSubtotal">CHF 0.00</span></div>
+          <div class="summary-totals-row"><span>Versand</span><span id="checkoutShipping">CHF 0.00</span></div>
+          <div class="summary-totals-row"><span>MwSt. 2.6 % (inkl.)</span><span id="checkoutMwst">CHF 0.00</span></div>
+          <div class="summary-totals-row grand"><span>Total</span><span id="checkoutTotal">CHF 0.00</span></div>
+        </div>
+        <div class="free-ship-track" style="margin-top:16px"><div class="free-ship-fill" id="freeShipFillCheckout"></div></div>
+        <div class="checkout-trust">
+          <span>Direkt vom Erzeuger</span>
+          <span>14 Tage Rückgaberecht</span>
+          <span>Fragen? WhatsApp 078 811 16 39</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- BESTÄTIGUNG -->
+  <div class="confirmation-block" id="checkoutSuccess" style="display:none">
+    <div class="confirmation-check">✓</div>
+    <h2>Danke für die Bestellung</h2>
+    <p>Wir haben Ihre Bestellung erhalten und melden uns in Kürze mit den Zahlungsdetails.</p>
+    <div class="confirmation-order-num" id="orderNumber"></div>
+    <a href="produkte.html" class="btn-primary">Weiter einkaufen</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu"></picture>
+        <span class="footer-brand-text">Kaleburcu</span>
+      </a>
+      <p class="footer-tagline">Natives Olivenöl Extra, direkt von der Familienplantage im Dorf Kaleburcu, Adana — in die Schweiz.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Shop</div>
+      <ul class="footer-links">
+        <li><a href="produkte.html">Sortiment</a></li>
+        <li><a href="produkte/olivenoel-500ml.html">Olivenöl 500&nbsp;ml</a></li>
+        <li><a href="index.html#b2b">Gastronomie &amp; Handel</a></li>
+        <li><a href="kasse.html">Kasse</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Haus Kaleburcu</div>
+      <ul class="footer-links">
+        <li><a href="uber-uns.html">Über uns</a></li>
+        <li><a href="herkunft.html">Herkunft</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Kontakt</div>
+      <ul class="footer-links">
+        <li><a href="tel:+41788111639">078 811 16 39</a></li>
+        <li><a href="https://wa.me/41788111639" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:info@kaleburcu.ch">info@kaleburcu.ch</a></li>
+        <li><span>Mo.–Sa. 09:00–18:00 Uhr</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span>&copy; 2026 Kaleburcu · Ümit Şen, Schweiz</span>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="widerruf.html">Widerruf</a>
+    </div>
+    <div class="footer-pay">
+      <span class="footer-pay-label">Zahlung</span>
+      <span class="footer-pay-chip">TWINT</span>
+      <span class="footer-pay-chip">Rechnung</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WARENKORB -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <span class="cart-title">Warenkorb</span>
+    <button class="cart-close" id="cartClose" aria-label="Schliessen">✕</button>
+  </div>
+  <div class="cart-list" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <span>Noch nichts drin. Unser Öl gibt es in 500&nbsp;ml und im 5-Liter-Kanister.</span>
+      <a href="index.html#produkte" class="btn-primary" id="cartEmptyShop">Zum Shop</a>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFooter" style="display:none">
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Zwischensumme</span>
+      <span class="cart-subtotal-amount" id="cartTotal">CHF 0.00</span>
+    </div>
+    <p class="cart-shipping-note" id="cartShippingNote"></p>
+    <div class="free-ship-track"><div class="free-ship-fill" id="freeShipFill"></div></div>
+    <a href="kasse.html" class="cart-checkout-btn">Zur Kasse →</a>
+    <button class="cart-continue-btn" id="cartContinue">Weiter einkaufen</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/main.js"></script>
+<script src="assets/checkout.js"></script>
+</body>
+</html>
