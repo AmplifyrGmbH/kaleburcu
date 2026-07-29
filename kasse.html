@@ -149,18 +149,19 @@
           <h2>Zahlung</h2>
           <div class="option-rows">
             <label class="option-row active">
-              <span class="option-row-name">TWINT <span class="option-row-badge">Empfohlen</span></span>
-              <input type="radio" name="payment" value="TWINT" checked style="width:auto">
-            </label>
-            <label class="option-row">
-              <span class="option-row-name">Karte oder Apple Pay</span>
-              <input type="radio" name="payment" value="Karte / Apple Pay" style="width:auto">
-            </label>
-            <label class="option-row">
               <span class="option-row-name">Rechnung <span style="color:var(--ink-3)">· 30 Tage</span></span>
-              <input type="radio" name="payment" value="Rechnung (30 Tage)" style="width:auto">
+              <input type="radio" name="payment" value="Rechnung (30 Tage)" checked style="width:auto">
+            </label>
+            <label class="option-row" style="opacity:.45;cursor:not-allowed">
+              <span class="option-row-name">TWINT <span class="option-row-badge">Bald verfügbar</span></span>
+              <input type="radio" name="payment" value="TWINT" disabled style="width:auto">
+            </label>
+            <label class="option-row" style="opacity:.45;cursor:not-allowed">
+              <span class="option-row-name">Karte oder Apple Pay <span class="option-row-badge">Bald verfügbar</span></span>
+              <input type="radio" name="payment" value="Karte / Apple Pay" disabled style="width:auto">
             </label>
           </div>
+          <p class="checkout-note">Aktuell zahlt ihr per Rechnung/Banküberweisung — die Zahlungsdetails erhaltet ihr direkt von uns nach der Bestellung. Weitere Zahlungsarten folgen in Kürze.</p>
           <div class="checkout-agb-row">
             <input type="checkbox" id="coAgb" required>
             <label for="coAgb" style="text-transform:none;letter-spacing:normal;font-size:13px;color:var(--ink-2);font-weight:300;margin:0">
@@ -260,7 +261,6 @@
     </div>
     <div class="footer-pay">
       <span class="footer-pay-label">Zahlung</span>
-      <span class="footer-pay-chip">TWINT</span>
       <span class="footer-pay-chip">Rechnung</span>
     </div>
   </div>

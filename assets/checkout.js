@@ -126,7 +126,7 @@ const checkoutForm = document.getElementById('checkoutForm');
 if (checkoutForm) {
   renderCheckout();
 
-  checkoutForm.addEventListener('submit', e => {
+  checkoutForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     if (!cart.length) {
@@ -156,41 +156,41 @@ if (checkoutForm) {
     const total = subtotal + shipping;
     const mwst = total - total / 1.026;
 
-    const itemLines = cart.map(i => `- ${i.qty}x ${i.name} (${i.meta}) — ${chf(i.price * i.qty)}`).join('\n');
-    const orderNumber = 'KB-' + Math.floor(100000 + (subtotal * 977) % 900000);
+    const items = cart.map(i => ({
+      name: i.name, meta: i.meta, qty: i.qty, sum: chf(i.price * i.qty)
+    }));
 
-    const orderText =
-`Neue Bestellung — Kaleburcu.ch
-Bestellnummer: ${orderNumber}
+    const submitBtn = document.getElementById('checkoutSubmit');
+    const submitBtnOriginalText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet …'; }
 
-Kunde: ${firstName} ${lastName}
-Adresse: ${street}, ${plz}
-E-Mail: ${email}
-Telefon: ${phone}
+    try {
+      const res = await fetch('order-handler.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName, lastName, email, phone, street, plz, notes,
+          shippingLabel, payment, items,
+          subtotal: chf(subtotal),
+          shipping: shipping === 0 ? 'Kostenlos' : chf(shipping),
+          mwst: chf(mwst),
+          total: chf(total)
+        })
+      });
+      const result = await res.json();
 
-Bestellte Artikel:
-${itemLines}
+      if (!result.ok) throw new Error(result.error || 'unknown');
 
-Zwischensumme: ${chf(subtotal)}
-Versand (${shippingLabel}): ${shipping === 0 ? 'Kostenlos' : chf(shipping)}
-MwSt. 2.6% (inkl.): ${chf(mwst)}
-Total: ${chf(total)}
+      document.getElementById('orderNumber').textContent = 'Bestellnummer ' + result.orderNumber;
+      document.getElementById('checkoutFormWrap').style.display = 'none';
+      document.getElementById('checkoutSuccess').style.display = 'block';
 
-Zahlungswunsch: ${payment}
-Anmerkungen: ${notes || '—'}`;
-
-    const subject = encodeURIComponent(`Neue Bestellung ${orderNumber} von ${firstName} ${lastName}`);
-    const body = encodeURIComponent(orderText);
-    const mailtoLink = `mailto:info@kaleburcu.ch?subject=${subject}&body=${body}`;
-
-    document.getElementById('orderNumber').textContent = 'Bestellnummer ' + orderNumber;
-    document.getElementById('checkoutFormWrap').style.display = 'none';
-    document.getElementById('checkoutSuccess').style.display = 'block';
-
-    window.location.href = mailtoLink;
-
-    cart = [];
-    saveCart();
-    updateCartBadge();
+      cart = [];
+      saveCart();
+      updateCartBadge();
+    } catch (err) {
+      showToast('Bestellung konnte nicht gesendet werden. Bitte per WhatsApp (078 811 16 39) oder info@kaleburcu.ch bestellen.');
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtnOriginalText; }
+    }
   });
 }

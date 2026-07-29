@@ -278,7 +278,7 @@ if (newsletterForm) {
 // ─── KONTAKTFORMULAR (kontakt.html) ───
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
     const firstName = document.getElementById('firstName').value.trim();
     const lastName  = document.getElementById('lastName').value.trim();
@@ -287,6 +287,7 @@ if (contactForm) {
     const subjectEl = document.getElementById('subject');
     const message   = document.getElementById('message').value.trim();
     const status    = document.getElementById('formStatus');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
 
     if (!firstName || !lastName || !email || !subjectEl.value || !message) {
       showToast('Bitte alle Pflichtfelder ausfüllen.');
@@ -294,24 +295,37 @@ if (contactForm) {
     }
 
     const subjectLabel = subjectEl.options[subjectEl.selectedIndex].text;
-    const bodyText =
-`Neue Kontaktanfrage — Kaleburcu.ch
 
-Name: ${firstName} ${lastName}
-E-Mail: ${email}
-Telefon: ${phone || '—'}
-Betreff: ${subjectLabel}
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet …'; }
 
-Nachricht:
-${message}`;
+    try {
+      const res = await fetch('contact-handler.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email, phone, subject: subjectLabel, message })
+      });
+      const result = await res.json();
 
-    const mailtoLink = `mailto:info@kaleburcu.ch?subject=${encodeURIComponent('Kontaktanfrage: ' + subjectLabel)}&body=${encodeURIComponent(bodyText)}`;
-
-    if (status) {
-      status.textContent = 'Danke — Ihre Anfrage wird über Ihr E-Mail-Programm gesendet.';
-      status.style.display = 'block';
+      if (result.ok) {
+        contactForm.reset();
+        if (status) {
+          status.textContent = 'Danke — Ihre Nachricht ist bei uns eingegangen. Wir melden uns bald.';
+          status.style.color = 'var(--gold-dark)';
+          status.style.display = 'block';
+        }
+      } else {
+        throw new Error(result.error || 'unknown');
+      }
+    } catch (err) {
+      if (status) {
+        status.textContent = 'Senden fehlgeschlagen. Bitte kontaktieren Sie uns direkt per WhatsApp (078 811 16 39) oder info@kaleburcu.ch.';
+        status.style.color = '#b0623c';
+        status.style.display = 'block';
+      }
+      showToast('Senden fehlgeschlagen — bitte direkt anrufen/WhatsApp.');
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Nachricht senden'; }
     }
-    window.location.href = mailtoLink;
   });
 }
 
