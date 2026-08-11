@@ -8,8 +8,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="Kaleburcu Kasse — Kontakt &amp; Lieferung, Versand und Zahlung in drei Schritten.">
-<title>Kasse — Kaleburcu</title>
+<title>Kasse — Bestellung sicher abschliessen bei Kaleburcu</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#192A24">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,21 +22,21 @@
 
 <!-- NAVIGATION -->
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu" class="nav-logo-icon"></picture>
     <span class="nav-logo-text">Kaleburcu</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#produkte">Produkte</a></li>
-    <li><a href="index.html#familie">Familie</a></li>
-    <li><a href="index.html#prozess">Prozess</a></li>
-    <li><a href="index.html#herkunft">Herkunft</a></li>
-    <li><a href="index.html#stimmen">Stimmen</a></li>
-    <li><a href="index.html#b2b">Gastronomie</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="/#produkte">Produkte</a></li>
+    <li><a href="/#familie">Familie</a></li>
+    <li><a href="/#prozess">Prozess</a></li>
+    <li><a href="/#herkunft">Herkunft</a></li>
+    <li><a href="/#stimmen">Stimmen</a></li>
+    <li><a href="/#b2b">Gastronomie</a></li>
+    <li><a href="/#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#produkte" class="nav-cta">Öl bestellen</a>
+    <a href="/#produkte" class="nav-cta">Öl bestellen</a>
     <button class="cart-btn" id="cartToggle" aria-label="Warenkorb öffnen">
       <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 8V6a3.5 3.5 0 1 1 7 0v2"/></svg>
       <span class="cart-badge" id="cartCount">0</span>
@@ -45,21 +46,21 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="produkte/olivenoel-500ml.html" class="mobile-link">Olivenöl</a>
-  <a href="produkte.html" class="mobile-link">Sortiment</a>
-  <a href="index.html#familie" class="mobile-link">Familie</a>
-  <a href="index.html#prozess" class="mobile-link">Prozess</a>
-  <a href="herkunft.html" class="mobile-link">Herkunft</a>
-  <a href="uber-uns.html" class="mobile-link">Archiv</a>
-  <a href="index.html#b2b" class="mobile-link">Gastronomie</a>
-  <a href="index.html#faq" class="mobile-link">FAQ</a>
+  <a href="/produkte/olivenoel-500ml" class="mobile-link">Olivenöl</a>
+  <a href="/produkte" class="mobile-link">Sortiment</a>
+  <a href="/#familie" class="mobile-link">Familie</a>
+  <a href="/#prozess" class="mobile-link">Prozess</a>
+  <a href="/herkunft" class="mobile-link">Herkunft</a>
+  <a href="/uber-uns" class="mobile-link">Archiv</a>
+  <a href="/#b2b" class="mobile-link">Gastronomie</a>
+  <a href="/#faq" class="mobile-link">FAQ</a>
   <a href="tel:+41788111639" class="mobile-tel">078 811 16 39</a>
 </div>
 
 <div class="page-shell">
   <div class="checkout-head">
     <h1>Kasse</h1>
-    <a href="produkte.html" class="btn-text">← Weiter einkaufen</a>
+    <a href="/produkte" class="btn-text">← Weiter einkaufen</a>
   </div>
 
   <div class="step-indicator">
@@ -165,7 +166,7 @@
           <div class="checkout-agb-row">
             <input type="checkbox" id="coAgb" required>
             <label for="coAgb" style="text-transform:none;letter-spacing:normal;font-size:13px;color:var(--ink-2);font-weight:300;margin:0">
-              Ich akzeptiere die <a href="agb.html" target="_blank">AGB</a>, die <a href="widerruf.html" target="_blank">Widerrufsbelehrung</a> und die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
+              Ich akzeptiere die <a href="/agb" target="_blank">AGB</a>, die <a href="/widerruf" target="_blank">Widerrufsbelehrung</a> und die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>.
             </label>
           </div>
           <div class="checkout-actions">
@@ -210,7 +211,7 @@
     <h2>Danke für die Bestellung</h2>
     <p>Wir haben Ihre Bestellung erhalten und melden uns in Kürze mit den Zahlungsdetails.</p>
     <div class="confirmation-order-num" id="orderNumber"></div>
-    <a href="produkte.html" class="btn-primary">Weiter einkaufen</a>
+    <a href="/produkte" class="btn-primary">Weiter einkaufen</a>
   </div>
 </div>
 
@@ -218,7 +219,7 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div>
-      <a href="index.html" class="footer-brand">
+      <a href="/" class="footer-brand">
         <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu"></picture>
         <span class="footer-brand-text">Kaleburcu</span>
       </a>
@@ -227,18 +228,18 @@
     <div>
       <div class="footer-heading">Shop</div>
       <ul class="footer-links">
-        <li><a href="produkte.html">Sortiment</a></li>
-        <li><a href="produkte/olivenoel-500ml.html">Olivenöl 500&nbsp;ml</a></li>
-        <li><a href="index.html#b2b">Gastronomie &amp; Handel</a></li>
-        <li><a href="kasse.html">Kasse</a></li>
+        <li><a href="/produkte">Sortiment</a></li>
+        <li><a href="/produkte/olivenoel-500ml">Olivenöl 500&nbsp;ml</a></li>
+        <li><a href="/#b2b">Gastronomie &amp; Handel</a></li>
+        <li><a href="/kasse">Kasse</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-heading">Haus Kaleburcu</div>
       <ul class="footer-links">
-        <li><a href="uber-uns.html">Über uns</a></li>
-        <li><a href="herkunft.html">Herkunft</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="/uber-uns">Über uns</a></li>
+        <li><a href="/herkunft">Herkunft</a></li>
+        <li><a href="/#faq">FAQ</a></li>
       </ul>
     </div>
     <div>
@@ -247,6 +248,7 @@
         <li><a href="tel:+41788111639">078 811 16 39</a></li>
         <li><a href="https://wa.me/41788111639" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="mailto:info@kaleburcu.ch">info@kaleburcu.ch</a></li>
+        <li><span>8706 Meilen, Schweiz</span></li>
         <li><span>Mo.–Sa. 09:00–18:00 Uhr</span></li>
       </ul>
     </div>
@@ -254,10 +256,10 @@
   <div class="footer-bottom">
     <div class="footer-bottom-left">
       <span>&copy; 2026 Kaleburcu · Ümit Şen, Schweiz</span>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="agb.html">AGB</a>
-      <a href="widerruf.html">Widerruf</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/agb">AGB</a>
+      <a href="/widerruf">Widerruf</a>
     </div>
     <div class="footer-pay">
       <span class="footer-pay-label">Zahlung</span>
@@ -276,7 +278,7 @@
   <div class="cart-list" id="cartItems">
     <div class="cart-empty" id="cartEmpty">
       <span>Noch nichts drin. Unser Öl gibt es in 500&nbsp;ml und im 5-Liter-Kanister.</span>
-      <a href="index.html#produkte" class="btn-primary" id="cartEmptyShop">Zum Shop</a>
+      <a href="/#produkte" class="btn-primary" id="cartEmptyShop">Zum Shop</a>
     </div>
   </div>
   <div class="cart-foot" id="cartFooter" style="display:none">
@@ -286,7 +288,7 @@
     </div>
     <p class="cart-shipping-note" id="cartShippingNote"></p>
     <div class="free-ship-track"><div class="free-ship-fill" id="freeShipFill"></div></div>
-    <a href="kasse.html" class="cart-checkout-btn">Zur Kasse →</a>
+    <a href="/kasse" class="cart-checkout-btn">Zur Kasse →</a>
     <button class="cart-continue-btn" id="cartContinue">Weiter einkaufen</button>
   </div>
 </div>

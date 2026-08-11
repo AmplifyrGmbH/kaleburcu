@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="description" content="Kaleburcu — Natives Olivenöl Extra, direkt von der Familienplantage im Dorf Kaleburcu, Adana. Handgepflückt, kaltgepresst, ungefiltert. Jetzt in der Schweiz bestellen.">
+<meta name="description" content="Kaleburcu — Natives Olivenöl Extra von der Familienplantage im Dorf Kaleburcu, Adana. Handgepflückt, kaltgepresst, ungefiltert. Jetzt bestellen.">
 <title>Kaleburcu — Natives Olivenöl Extra aus Adana</title>
 <link rel="canonical" href="https://www.kaleburcu.ch/">
 <meta property="og:type" content="website">
@@ -21,6 +21,8 @@
 <meta name="twitter:title" content="Kaleburcu — Natives Olivenöl Extra aus Adana">
 <meta name="twitter:description" content="Handgepflücktes Olivenöl, direkt von der Familienplantage im Dorf Kaleburcu, Adana, in die Schweiz.">
 <meta name="twitter:image" content="https://www.kaleburcu.ch/assets/og-image.jpg">
+<meta name="theme-color" content="#192A24">
+<link rel="preload" as="image" href="assets/real-plantage.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -29,6 +31,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.kaleburcu.ch/#organization",
   "name": "Kaleburcu",
   "url": "https://www.kaleburcu.ch/",
   "logo": "https://www.kaleburcu.ch/assets/kaleburcu-icon.png",
@@ -36,7 +39,45 @@
   "email": "info@kaleburcu.ch",
   "telephone": "+41788111639",
   "address": { "@type": "PostalAddress", "addressLocality": "Meilen", "postalCode": "8706", "addressCountry": "CH" },
-  "sameAs": []
+  "areaServed": { "@type": "Country", "name": "Schweiz" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie lange ist das Öl haltbar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ungeöffnet 18 Monate ab Pressung — das Datum steht auf jeder Flasche. Nach dem Öffnen innerhalb von etwa drei Monaten verbrauchen, dunkel und bei Raumtemperatur gelagert." }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum ist das Öl leicht trüb?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Weil es ungefiltert ist. Die feine Trübung sind Fruchtpartikel — sie tragen Aroma. Ein Zeichen für naturbelassenes Öl, kein Mangel." }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert der Versand?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Wir versenden innerhalb der Schweiz in 2–4 Werktagen. Ab CHF 60 ist der Versand kostenlos, darunter CHF 8.90." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich das Abo jederzeit kündigen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ja. Das Abo läuft ohne Mindestlaufzeit — Sie können jede Lieferung verschieben, pausieren oder das Abo mit einer Nachricht beenden." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich vor dem Kauf probieren?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Für Restaurants und Läden schicken wir gerne eine Musterflasche. Schreiben Sie uns kurz an info@kaleburcu.ch mit Betrieb und Adresse." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was, wenn es mir nicht schmeckt?",
+      "acceptedAnswer": { "@type": "Answer", "text": "14 Tage Rückgaberecht, auch bei angebrochener Flasche. Melden Sie sich einfach — wir erstatten den Kaufpreis." }
+    }
+  ]
 }
 </script>
 </head>
@@ -49,21 +90,21 @@
 
 <!-- NAVIGATION -->
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu" class="nav-logo-icon"></picture>
     <span class="nav-logo-text">Kaleburcu</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#produkte">Produkte</a></li>
-    <li><a href="index.html#familie">Familie</a></li>
-    <li><a href="index.html#prozess">Prozess</a></li>
-    <li><a href="index.html#herkunft">Herkunft</a></li>
-    <li><a href="index.html#stimmen">Stimmen</a></li>
-    <li><a href="index.html#b2b">Gastronomie</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="/#produkte">Produkte</a></li>
+    <li><a href="/#familie">Familie</a></li>
+    <li><a href="/#prozess">Prozess</a></li>
+    <li><a href="/#herkunft">Herkunft</a></li>
+    <li><a href="/#stimmen">Stimmen</a></li>
+    <li><a href="/#b2b">Gastronomie</a></li>
+    <li><a href="/#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#produkte" class="nav-cta">Öl bestellen</a>
+    <a href="/#produkte" class="nav-cta">Öl bestellen</a>
     <button class="cart-btn" id="cartToggle" aria-label="Warenkorb öffnen">
       <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 8V6a3.5 3.5 0 1 1 7 0v2"/></svg>
       <span class="cart-badge" id="cartCount">0</span>
@@ -73,14 +114,14 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="produkte/olivenoel-500ml.html" class="mobile-link">Olivenöl</a>
-  <a href="produkte.html" class="mobile-link">Sortiment</a>
-  <a href="index.html#familie" class="mobile-link">Familie</a>
-  <a href="index.html#prozess" class="mobile-link">Prozess</a>
-  <a href="herkunft.html" class="mobile-link">Herkunft</a>
-  <a href="uber-uns.html" class="mobile-link">Archiv</a>
-  <a href="index.html#b2b" class="mobile-link">Gastronomie</a>
-  <a href="index.html#faq" class="mobile-link">FAQ</a>
+  <a href="/produkte/olivenoel-500ml" class="mobile-link">Olivenöl</a>
+  <a href="/produkte" class="mobile-link">Sortiment</a>
+  <a href="/#familie" class="mobile-link">Familie</a>
+  <a href="/#prozess" class="mobile-link">Prozess</a>
+  <a href="/herkunft" class="mobile-link">Herkunft</a>
+  <a href="/uber-uns" class="mobile-link">Archiv</a>
+  <a href="/#b2b" class="mobile-link">Gastronomie</a>
+  <a href="/#faq" class="mobile-link">FAQ</a>
   <a href="tel:+41788111639" class="mobile-tel">078 811 16 39</a>
 </div>
 
@@ -94,8 +135,8 @@
     </h1>
     <p class="hero-lead">Handgepflücktes Olivenöl — direkt von unserer Familienplantage im Dorf Kaleburcu bei Adana in die Schweiz. Kaltgepresst, ungefiltert, ohne Zwischenhändler.</p>
     <div class="hero-actions">
-      <a href="index.html#produkte" class="btn-primary">Öl bestellen</a>
-      <a href="uber-uns.html" class="btn-text">Unsere Geschichte →</a>
+      <a href="/#produkte" class="btn-primary">Öl bestellen</a>
+      <a href="/uber-uns" class="btn-text">Unsere Geschichte →</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -173,10 +214,10 @@
 
   <div class="product-grid">
     <!-- 500 ml -->
-    <div class="product-card" data-id="small" data-name="Natives Olivenöl Extra · 500 ml" data-price="15.00" data-img="assets/shop-500ml.png" data-sub="0">
+    <div class="product-card" data-id="small" data-name="Natives Olivenöl Extra · 500 ml" data-price="15.00" data-img="assets/shop-500ml.webp" data-sub="0">
       <div class="product-media">
         <span class="product-badge">Bestseller</span>
-        <img src="assets/shop-500ml.png" alt="Kaleburcu natives Olivenöl extra, 500 ml Flasche">
+        <img src="assets/shop-500ml.webp" alt="Kaleburcu natives Olivenöl extra, 500 ml Flasche">
       </div>
       <div class="product-body">
         <div class="product-title-row">
@@ -197,10 +238,10 @@
     </div>
 
     <!-- 5 l -->
-    <div class="product-card" data-id="large" data-name="Natives Olivenöl Extra · 5 Liter" data-price="140.00" data-img="assets/shop-5l.png" data-sub="0">
+    <div class="product-card" data-id="large" data-name="Natives Olivenöl Extra · 5 Liter" data-price="140.00" data-img="assets/shop-5l.webp" data-sub="0">
       <div class="product-media">
         <span class="product-badge dark">Vorteilsgrösse</span>
-        <img src="assets/shop-5l.png" alt="Kaleburcu natives Olivenöl extra, 5-Liter-Kanister">
+        <img src="assets/shop-5l.webp" alt="Kaleburcu natives Olivenöl extra, 5-Liter-Kanister">
       </div>
       <div class="product-body">
         <div class="product-title-row">
@@ -240,7 +281,7 @@
       </div>
       <div><div class="category-tile-line"></div><div class="category-tile-sub">Ernte 2026</div></div>
     </div>
-    <a href="index.html#b2b" class="category-tile cta">
+    <a href="/#b2b" class="category-tile cta">
       <div>
         <div class="category-tile-name">Firmengeschenke</div>
       </div>
@@ -272,7 +313,7 @@
     <h2 class="reveal">Drei Generationen,<br>ein Olivenhain</h2>
     <p class="reveal">Im Dorf Kaleburcu bei Adana pflegt unsere Familie Olivenbäume, die seit Generationen dort stehen. Die Sorte Sarıulak wächst hier auf kalkreichem Boden, in mediterranem Klima mit vielen Sonnentagen im Jahr.</p>
     <p class="reveal">Geerntet wird ausschliesslich von Hand, gepresst innerhalb von Stunden nach der Ernte — kalt, ungefiltert, ohne Zusätze.</p>
-    <a href="index.html#herkunft" class="btn-text" style="margin-top:32px;display:inline-flex">Die Herkunft ansehen →</a>
+    <a href="/#herkunft" class="btn-text" style="margin-top:32px;display:inline-flex">Die Herkunft ansehen →</a>
   </div>
 </section>
 
@@ -296,7 +337,10 @@
   </div>
 
   <div class="prozess-band">
-    <img src="assets/band-prozess.jpg" alt="Olivenöl in einer Glasschale auf einem Baumstumpf, umgeben von Olivenzweigen">
+    <picture>
+      <source srcset="assets/band-prozess.webp" type="image/webp">
+      <img src="assets/band-prozess.jpg" alt="Olivenöl in einer Glasschale auf einem Baumstumpf, umgeben von Olivenzweigen" loading="lazy">
+    </picture>
     <div class="prozess-band-scrim"></div>
     <div class="prozess-band-caption">Kaleburcu, Adana · Oktober</div>
   </div>
@@ -376,7 +420,7 @@
 <section class="stimmen" id="stimmen">
   <div class="stimmen-grid">
     <div class="stimmen-media reveal">
-      <img src="assets/archiv-grosseltern.png" alt="Archivfoto der Grosseltern der Familie Şen aus Kaleburcu">
+      <img src="assets/archiv-grosseltern.webp" alt="Archivfoto der Grosseltern der Familie Şen aus Kaleburcu">
       <div class="stimmen-media-caption">Archiv · Familie Şen, Kaleburcu</div>
     </div>
     <div class="on-forest reveal">
@@ -464,7 +508,7 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div>
-      <a href="index.html" class="footer-brand">
+      <a href="/" class="footer-brand">
         <picture><source srcset="assets/kaleburcu-icon.webp" type="image/webp"><img src="assets/kaleburcu-icon.png" alt="Kaleburcu"></picture>
         <span class="footer-brand-text">Kaleburcu</span>
       </a>
@@ -473,18 +517,18 @@
     <div>
       <div class="footer-heading">Shop</div>
       <ul class="footer-links">
-        <li><a href="produkte.html">Sortiment</a></li>
-        <li><a href="produkte/olivenoel-500ml.html">Olivenöl 500&nbsp;ml</a></li>
-        <li><a href="index.html#b2b">Gastronomie &amp; Handel</a></li>
-        <li><a href="kasse.html">Kasse</a></li>
+        <li><a href="/produkte">Sortiment</a></li>
+        <li><a href="/produkte/olivenoel-500ml">Olivenöl 500&nbsp;ml</a></li>
+        <li><a href="/#b2b">Gastronomie &amp; Handel</a></li>
+        <li><a href="/kasse">Kasse</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-heading">Haus Kaleburcu</div>
       <ul class="footer-links">
-        <li><a href="uber-uns.html">Über uns</a></li>
-        <li><a href="herkunft.html">Herkunft</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="/uber-uns">Über uns</a></li>
+        <li><a href="/herkunft">Herkunft</a></li>
+        <li><a href="/#faq">FAQ</a></li>
       </ul>
     </div>
     <div>
@@ -493,6 +537,7 @@
         <li><a href="tel:+41788111639">078 811 16 39</a></li>
         <li><a href="https://wa.me/41788111639" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="mailto:info@kaleburcu.ch">info@kaleburcu.ch</a></li>
+        <li><span>8706 Meilen, Schweiz</span></li>
         <li><span>Mo.–Sa. 09:00–18:00 Uhr</span></li>
       </ul>
     </div>
@@ -500,10 +545,10 @@
   <div class="footer-bottom">
     <div class="footer-bottom-left">
       <span>&copy; 2026 Kaleburcu · Ümit Şen, Schweiz</span>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="agb.html">AGB</a>
-      <a href="widerruf.html">Widerruf</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/agb">AGB</a>
+      <a href="/widerruf">Widerruf</a>
     </div>
     <div class="footer-pay">
       <span class="footer-pay-label">Zahlung</span>
@@ -515,7 +560,7 @@
 <!-- STICKY KAUFLEISTE -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-bar-left">
-    <div class="sticky-thumb" style="background-image:url('assets/shop-500ml.png')"></div>
+    <div class="sticky-thumb" style="background-image:url('assets/shop-500ml.webp')"></div>
     <div class="sticky-info">
       <div class="sticky-name">Natives Olivenöl Extra · 500 ml</div>
       <div class="sticky-sub">Jahrgang 2025 · Versand ab CHF 60 gratis</div>
@@ -537,7 +582,7 @@
   <div class="cart-list" id="cartItems">
     <div class="cart-empty" id="cartEmpty">
       <span>Noch nichts drin. Unser Öl gibt es in 500&nbsp;ml und im 5-Liter-Kanister.</span>
-      <a href="index.html#produkte" class="btn-primary" id="cartEmptyShop">Zum Shop</a>
+      <a href="/#produkte" class="btn-primary" id="cartEmptyShop">Zum Shop</a>
     </div>
   </div>
   <div class="cart-foot" id="cartFooter" style="display:none">
@@ -547,7 +592,7 @@
     </div>
     <p class="cart-shipping-note" id="cartShippingNote"></p>
     <div class="free-ship-track"><div class="free-ship-fill" id="freeShipFill"></div></div>
-    <a href="kasse.html" class="cart-checkout-btn">Zur Kasse →</a>
+    <a href="/kasse" class="cart-checkout-btn">Zur Kasse →</a>
     <button class="cart-continue-btn" id="cartContinue">Weiter einkaufen</button>
   </div>
 </div>

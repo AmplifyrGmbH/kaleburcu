@@ -254,7 +254,7 @@ const stickyBar = document.getElementById('stickyBar');
 const stickyAddBtn = document.getElementById('stickyAddBtn');
 if (stickyAddBtn) {
   stickyAddBtn.addEventListener('click', () => {
-    addToCart('small', 'Natives Olivenöl Extra · 500 ml', 15.00, 'assets/shop-500ml.png', false);
+    addToCart('small', 'Natives Olivenöl Extra · 500 ml', 15.00, 'assets/shop-500ml.webp', false);
   });
 }
 
