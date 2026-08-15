@@ -151,7 +151,12 @@ if (cartItemsEl) {
     if (!item) return;
 
     if (e.target.classList.contains('qty-plus')) {
-      item.qty++;
+      const ceiling = maxQtyFor(item.id);
+      if (item.qty < ceiling) {
+        item.qty++;
+      } else {
+        showToast(`Nur noch ${ceiling} auf Lager.`);
+      }
     } else if (e.target.classList.contains('qty-minus')) {
       item.qty--;
       if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
@@ -171,6 +176,18 @@ function stockAvailable(id) {
   if (!id) return Infinity;
   const base = id.split(':')[0];
   return Object.prototype.hasOwnProperty.call(stockLevels, base) ? stockLevels[base] : Infinity;
+}
+
+// Abo- und Einmalig-Variante teilen sich denselben physischen Bestand — daher beim Ermitteln
+// der verbleibenden Kapazität für EINE Zeile die Menge der jeweils anderen Variante im Warenkorb abziehen.
+function cartQtyForOtherLines(id) {
+  const base = id.split(':')[0];
+  return cart.reduce((sum, i) => sum + (i.id !== id && i.id.split(':')[0] === base ? i.qty : 0), 0);
+}
+function maxQtyFor(id) {
+  const available = stockAvailable(id);
+  if (!isFinite(available)) return Infinity;
+  return Math.max(0, available - cartQtyForOtherLines(id));
 }
 
 function applyStockUI() {
@@ -257,15 +274,24 @@ function addToCart(id, name, price, img, isSub, qty) {
   const finalPrice = isSub ? price * 0.9 : price;
   const meta = isSub ? 'Abo · −10 %' : 'Einmalig';
   const existing = cart.find(i => i.id === finalId);
+  const currentQty = existing ? existing.qty : 0;
+  const ceiling = maxQtyFor(finalId);
+  const nextQty = Math.min(currentQty + qty, ceiling);
+
+  if (nextQty <= currentQty) {
+    showToast(ceiling <= 0 ? 'Aktuell ausverkauft.' : `Nur noch ${ceiling} verfügbar — bereits im Warenkorb.`);
+    return;
+  }
+
   if (existing) {
-    existing.qty += qty;
+    existing.qty = nextQty;
   } else {
-    cart.push({ id: finalId, name, price: finalPrice, img, meta, qty });
+    cart.push({ id: finalId, name, price: finalPrice, img, meta, qty: nextQty });
   }
   saveCart();
   updateCartBadge();
   renderCart();
-  showToast(`${name} wurde hinzugefügt`);
+  showToast(nextQty < currentQty + qty ? `${name} wurde hinzugefügt (auf verfügbaren Bestand begrenzt)` : `${name} wurde hinzugefügt`);
   openCart();
 }
 
