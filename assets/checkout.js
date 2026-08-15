@@ -157,7 +157,7 @@ if (checkoutForm) {
     const mwst = total - total / 1.026;
 
     const items = cart.map(i => ({
-      name: i.name, meta: i.meta, qty: i.qty, sum: chf(i.price * i.qty)
+      id: i.id, name: i.name, meta: i.meta, qty: i.qty, sum: chf(i.price * i.qty)
     }));
 
     const submitBtn = document.getElementById('checkoutSubmit');
@@ -178,6 +178,16 @@ if (checkoutForm) {
         })
       });
       const result = await res.json();
+
+      if (!result.ok && result.error === 'out_of_stock') {
+        const names = (result.shortages || []).map(s => {
+          const match = cart.find(i => i.id === s.id || i.id.startsWith(s.id + ':'));
+          return match ? match.name : s.id;
+        }).join(', ');
+        showToast(`Von ${names || 'einem Artikel'} ist nicht mehr genug auf Lager. Bitte Menge im Warenkorb anpassen.`);
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtnOriginalText; }
+        return;
+      }
 
       if (!result.ok) throw new Error(result.error || 'unknown');
 

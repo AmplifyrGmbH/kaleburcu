@@ -52,6 +52,23 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+require __DIR__ . '/inc/stock-store.php';
+
+$stockRequest = [];
+foreach ($items as $it) {
+    $itemId = isset($it['id']) ? clean($it['id']) : '';
+    $itemQty = isset($it['qty']) ? (int)$it['qty'] : 0;
+    if ($itemId === '' || $itemQty <= 0) continue;
+    $stockRequest[] = ['id' => $itemId, 'qty' => $itemQty];
+}
+
+$stockResult = stock_check_and_decrement($stockRequest);
+if (!$stockResult['ok']) {
+    http_response_code(409);
+    echo json_encode(['ok' => false, 'error' => 'out_of_stock', 'shortages' => $stockResult['shortages']]);
+    exit;
+}
+
 $orderNumber = 'KB-' . strtoupper(substr(bin2hex(random_bytes(4)), 0, 6));
 
 $itemLines = '';

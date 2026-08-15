@@ -162,6 +162,55 @@ if (cartItemsEl) {
   });
 }
 
+// ─── STOCK STATUS ───
+// stockLevels ist geladen nach dem 'stockloaded'-Event; bis dahin gilt "unbegrenzt verfügbar" als Fallback.
+let stockLevels = {};
+const LOW_STOCK_THRESHOLD = 10;
+
+function stockAvailable(id) {
+  if (!id) return Infinity;
+  const base = id.split(':')[0];
+  return Object.prototype.hasOwnProperty.call(stockLevels, base) ? stockLevels[base] : Infinity;
+}
+
+function applyStockUI() {
+  document.querySelectorAll('.product-card[data-id]').forEach(card => {
+    const available = stockAvailable(card.dataset.id);
+    const addBtn = card.querySelector('.add-to-cart');
+    const buyBlock = card.querySelector('.buy-block');
+    if (!buyBlock) return;
+    let note = buyBlock.querySelector('.stock-note');
+
+    if (available <= 0) {
+      card.classList.add('sold-out');
+      if (addBtn) { addBtn.disabled = true; addBtn.textContent = 'Ausverkauft'; }
+      if (!note) { note = document.createElement('div'); note.className = 'stock-note stock-note-out'; buyBlock.insertBefore(note, addBtn); }
+      note.textContent = 'Aktuell ausverkauft — nächste Ernte folgt.';
+    } else if (available <= LOW_STOCK_THRESHOLD) {
+      if (!note) { note = document.createElement('div'); note.className = 'stock-note'; buyBlock.insertBefore(note, addBtn); }
+      note.textContent = `Nur noch ${available} auf Lager.`;
+    }
+  });
+
+  if (stickyAddBtn) {
+    const available = stockAvailable('small');
+    stickyAddBtn.disabled = available <= 0;
+    stickyAddBtn.textContent = available <= 0 ? 'Ausverkauft' : 'In den Warenkorb';
+  }
+
+  document.dispatchEvent(new CustomEvent('stockloaded'));
+}
+
+fetch('/stock-status.php')
+  .then(res => res.ok ? res.json() : null)
+  .then(result => {
+    if (result && result.ok && result.stock) {
+      stockLevels = result.stock;
+      applyStockUI();
+    }
+  })
+  .catch(() => {});
+
 // ─── TOAST ───
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -347,8 +396,15 @@ document.querySelectorAll('.qty-stepper[data-qty]').forEach(stepper => {
   const minus = stepper.querySelector('.qty-minus');
   const plus = stepper.querySelector('.qty-plus');
   let qty = 1;
+  function getMax() {
+    const max = parseInt(stepper.dataset.max, 10);
+    return isNaN(max) ? Infinity : max;
+  }
   if (minus) minus.addEventListener('click', () => { qty = Math.max(1, qty - 1); span.textContent = qty; stepper.dispatchEvent(new CustomEvent('qtychange', { detail: qty })); });
-  if (plus) plus.addEventListener('click', () => { qty++; span.textContent = qty; stepper.dispatchEvent(new CustomEvent('qtychange', { detail: qty })); });
+  if (plus) plus.addEventListener('click', () => {
+    if (qty >= getMax()) return;
+    qty++; span.textContent = qty; stepper.dispatchEvent(new CustomEvent('qtychange', { detail: qty }));
+  });
 });
 
 // ─── SCROLL: Fortschrittsbalken, Parallax (5 Bilder), Kaufleiste ───

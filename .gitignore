@@ -1,3 +1,8 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Laufzeit-Bestandsdaten und Zugangsdaten — leben nur auf dem Server, nicht in Git
+/data/stock.json
+/admin/.admin-credentials.php
+/order-log/

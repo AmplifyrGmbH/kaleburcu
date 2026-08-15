@@ -414,8 +414,20 @@
       subNote.textContent = 'Einmalige Lieferung.';
     }
 
-    addBtn.textContent = `In den Warenkorb · CHF ${(finalUnit * qty).toFixed(2)}`;
+    const available = stockAvailable(size.dataset.optionValue);
+    if (qtyStepper) qtyStepper.dataset.max = isFinite(available) ? available : '';
+
+    if (available <= 0) {
+      addBtn.disabled = true;
+      addBtn.textContent = 'Ausverkauft';
+    } else {
+      addBtn.disabled = false;
+      if (qty > available) { qty = available; qtyStepper.querySelector('span').textContent = qty; }
+      addBtn.textContent = `In den Warenkorb · CHF ${(finalUnit * qty).toFixed(2)}`;
+    }
   }
+
+  document.addEventListener('stockloaded', refresh);
 
   sizeGroup.addEventListener('optionchange', e => {
     const size = selectedSize();
