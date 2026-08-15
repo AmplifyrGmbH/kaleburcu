@@ -1,0 +1,6 @@
+# Manche Hostpoint-PHP-Konfigurationen (FastCGI) reichen den Authorization-Header nicht
+# automatisch an PHP weiter. Diese Regel erzwingt die Weiterleitung, damit
+# $_SERVER['PHP_AUTH_USER'] / HTTP_AUTHORIZATION in admin/stock.php ankommen.
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
