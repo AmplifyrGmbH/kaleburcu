@@ -1,5 +1,5 @@
 // ─── CHECKOUT PAGE (kasse.html) ───
-// Relies on `cart`, `saveCart()`, `getCartTotal()`, `updateCartBadge()`, `showToast()`, `chf()` from main.js
+// Relies on `cart`, `saveCart()`, `getCartTotal()`, `updateCartBadge()`, `showToast()`, `chf()`, `t()` from main.js
 
 function getShippingMethod() {
   const el = document.querySelector('input[name="shipping"]:checked');
@@ -53,14 +53,14 @@ function renderCheckout() {
   const mwst = total - total / 1.026;
 
   subtotalEl.textContent = chf(subtotal);
-  shippingEl.textContent = shipping === 0 ? 'Kostenlos' : chf(shipping);
+  shippingEl.textContent = shipping === 0 ? t('free') : chf(shipping);
   mwstEl.textContent = chf(mwst);
   totalEl.textContent = chf(total);
   if (fillEl) fillEl.style.width = Math.min(100, (subtotal / 60) * 100) + '%';
 
   if (submitBtn) {
     submitBtn.dataset.total = total.toFixed(2);
-    submitBtn.textContent = `Bestellung abschliessen · ${chf(total)}`;
+    submitBtn.textContent = t('checkoutSubmitLabel', total);
   }
 }
 
@@ -104,7 +104,7 @@ if (toStep2) toStep2.addEventListener('click', () => {
   const plz = document.getElementById('coPlz').value.trim();
   const phone = document.getElementById('coPhone').value.trim();
   if (!email || !firstName || !lastName || !street || !plz || !phone) {
-    showToast('Bitte alle Pflichtfelder ausfüllen.');
+    showToast(t('fillRequired'));
     return;
   }
   goToStep(2);
@@ -120,7 +120,7 @@ const backToStep2 = document.getElementById('backToStep2');
 if (backToStep2) backToStep2.addEventListener('click', () => goToStep(2));
 
 const promoBtn = document.getElementById('promoBtn');
-if (promoBtn) promoBtn.addEventListener('click', () => showToast('Dieser Rabattcode ist nicht gültig.'));
+if (promoBtn) promoBtn.addEventListener('click', () => showToast(t('invalidPromo')));
 
 const checkoutForm = document.getElementById('checkoutForm');
 if (checkoutForm) {
@@ -130,13 +130,13 @@ if (checkoutForm) {
     e.preventDefault();
 
     if (!cart.length) {
-      showToast('Ihr Warenkorb ist leer.');
+      showToast(t('emptyCart'));
       return;
     }
 
     const agb = document.getElementById('coAgb');
     if (!agb.checked) {
-      showToast('Bitte AGB, Widerrufsbelehrung und Datenschutz akzeptieren.');
+      showToast(t('acceptTerms'));
       return;
     }
 
@@ -162,7 +162,7 @@ if (checkoutForm) {
 
     const submitBtn = document.getElementById('checkoutSubmit');
     const submitBtnOriginalText = submitBtn ? submitBtn.textContent : '';
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet …'; }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t('sending'); }
 
     try {
       const res = await fetch('order-handler.php', {
@@ -184,14 +184,14 @@ if (checkoutForm) {
           const match = cart.find(i => i.id === s.id || i.id.startsWith(s.id + ':'));
           return match ? match.name : s.id;
         }).join(', ');
-        showToast(`Von ${names || 'einem Artikel'} ist nicht mehr genug auf Lager. Bitte Menge im Warenkorb anpassen.`);
+        showToast(t('outOfStockCheckout', names));
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtnOriginalText; }
         return;
       }
 
       if (!result.ok) throw new Error(result.error || 'unknown');
 
-      document.getElementById('orderNumber').textContent = 'Bestellnummer ' + result.orderNumber;
+      document.getElementById('orderNumber').textContent = t('orderNumberLabel') + result.orderNumber;
       document.getElementById('checkoutFormWrap').style.display = 'none';
       document.getElementById('checkoutSuccess').style.display = 'block';
 
@@ -199,7 +199,7 @@ if (checkoutForm) {
       saveCart();
       updateCartBadge();
     } catch (err) {
-      showToast('Bestellung konnte nicht gesendet werden. Bitte per WhatsApp (078 811 16 39) oder info@kaleburcu.ch bestellen.');
+      showToast(t('orderSendFailed'));
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtnOriginalText; }
     }
   });

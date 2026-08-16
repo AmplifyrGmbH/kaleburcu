@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/assets/site.webmanifest">
+<meta name="description" content="Kaleburcu Ödeme — İletişim &amp; Teslimat, kargo ve ödeme üç adımda.">
+<title>Ödeme — Kaleburcu'da siparişinizi güvenle tamamlayın</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#192A24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=4">
+</head>
+<body class="subpage">
+
+<div class="grain"></div>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="/tr/" class="nav-logo">
+    <picture><source srcset="/assets/kaleburcu-icon.webp" type="image/webp"><img src="/assets/kaleburcu-icon.png" alt="Kaleburcu" class="nav-logo-icon"></picture>
+    <span class="nav-logo-text">Kaleburcu</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/tr/#produkte">Ürünler</a></li>
+    <li><a href="/tr/#familie">Aile</a></li>
+    <li><a href="/tr/#prozess">Süreç</a></li>
+    <li><a href="/tr/#herkunft">Menşei</a></li>
+    <li><a href="/tr/#stimmen">Yorumlar</a></li>
+    <li><a href="/tr/#b2b">Restoran</a></li>
+    <li><a href="/tr/#faq">SSS</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/kasse" class="lang-switch">DE</a>
+    <a href="/tr/#produkte" class="nav-cta">Yağ Sipariş Et</a>
+    <button class="cart-btn" id="cartToggle" aria-label="Sepeti aç">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 8V6a3.5 3.5 0 1 1 7 0v2"/></svg>
+      <span class="cart-badge" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/tr/produkte/olivenoel-500ml" class="mobile-link">Zeytinyağı</a>
+  <a href="/tr/produkte" class="mobile-link">Ürün Yelpazesi</a>
+  <a href="/tr/#familie" class="mobile-link">Aile</a>
+  <a href="/tr/#prozess" class="mobile-link">Süreç</a>
+  <a href="/tr/herkunft" class="mobile-link">Menşei</a>
+  <a href="/tr/uber-uns" class="mobile-link">Arşiv</a>
+  <a href="/tr/#b2b" class="mobile-link">Restoran</a>
+  <a href="/tr/#faq" class="mobile-link">SSS</a>
+  <a href="tel:+41788111639" class="mobile-tel">078 811 16 39</a>
+  <a href="/kasse" class="mobile-link">Deutsch</a>
+</div>
+
+<div class="page-shell">
+  <div class="checkout-head">
+    <h1>Ödeme</h1>
+    <a href="/tr/produkte" class="btn-text">← Alışverişe Devam Et</a>
+  </div>
+
+  <div class="step-indicator">
+    <div class="step active" id="stepInd1">1 · İletişim &amp; Teslimat</div>
+    <div class="step" id="stepInd2">2 · Kargo</div>
+    <div class="step" id="stepInd3">3 · Ödeme</div>
+  </div>
+
+  <div id="checkoutFormWrap">
+  <div class="checkout-grid">
+    <div>
+      <form id="checkoutForm">
+        <!-- SCHRITT 1 -->
+        <div class="checkout-panel active" id="panel1">
+          <h2>İletişim &amp; Teslimat</h2>
+          <div class="form-field">
+            <label for="coEmail">E-posta</label>
+            <input type="email" id="coEmail" required>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="coFirstName">Ad</label>
+              <input type="text" id="coFirstName" required>
+            </div>
+            <div class="form-field">
+              <label for="coLastName">Soyad</label>
+              <input type="text" id="coLastName" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="coStreet">Sokak &amp; No.</label>
+            <input type="text" id="coStreet" required>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="coPlz">Posta Kodu / Şehir</label>
+              <input type="text" id="coPlz" required>
+            </div>
+            <div class="form-field">
+              <label for="coPhone">Telefon</label>
+              <input type="tel" id="coPhone" required>
+            </div>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-primary" id="toStep2">Kargoya Devam Et</button>
+          </div>
+        </div>
+
+        <!-- SCHRITT 2 -->
+        <div class="checkout-panel" id="panel2">
+          <h2>Kargo</h2>
+          <div class="option-rows">
+            <label class="option-row active">
+              <span class="option-row-name">B-Post <span style="color:var(--ink-3)">· 2–4 iş günü</span></span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price" id="bPostPrice">CHF 8.90</span>
+                <input type="radio" name="shipping" value="b-post" checked style="width:auto">
+              </span>
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">A-Post Priority <span style="color:var(--ink-3)">· 1–2 iş günü</span></span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price">CHF 12.90</span>
+                <input type="radio" name="shipping" value="a-post" style="width:auto">
+              </span>
+            </label>
+            <label class="option-row">
+              <span class="option-row-name">Meilen'de Teslim Alma</span>
+              <span style="display:flex;align-items:center;gap:12px">
+                <span class="option-row-price">Ücretsiz</span>
+                <input type="radio" name="shipping" value="abholung" style="width:auto">
+              </span>
+            </label>
+          </div>
+          <div class="form-field" style="margin-top:22px">
+            <label for="coNotes">Notlar (isteğe bağlı)</label>
+            <textarea id="coNotes" rows="3"></textarea>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-text" id="backToStep1">← Geri</button>
+            <button type="button" class="btn-primary" id="toStep3">Ödemeye Devam Et</button>
+          </div>
+        </div>
+
+        <!-- SCHRITT 3 -->
+        <div class="checkout-panel" id="panel3">
+          <h2>Ödeme</h2>
+          <div class="option-rows">
+            <label class="option-row active">
+              <span class="option-row-name">Fatura <span style="color:var(--ink-3)">· 30 gün</span></span>
+              <input type="radio" name="payment" value="Rechnung (30 Tage)" checked style="width:auto">
+            </label>
+            <label class="option-row" style="opacity:.45;cursor:not-allowed">
+              <span class="option-row-name">TWINT <span class="option-row-badge">Yakında</span></span>
+              <input type="radio" name="payment" value="TWINT" disabled style="width:auto">
+            </label>
+            <label class="option-row" style="opacity:.45;cursor:not-allowed">
+              <span class="option-row-name">Kart veya Apple Pay <span class="option-row-badge">Yakında</span></span>
+              <input type="radio" name="payment" value="Karte / Apple Pay" disabled style="width:auto">
+            </label>
+          </div>
+          <p class="checkout-note">Şu anda fatura/banka havalesi ile ödeme yapılmaktadır — ödeme bilgilerini siparişinizden sonra doğrudan bizden alacaksınız. Diğer ödeme yöntemleri yakında eklenecektir.</p>
+          <div class="checkout-agb-row">
+            <input type="checkbox" id="coAgb" required>
+            <label for="coAgb" style="text-transform:none;letter-spacing:normal;font-size:13px;color:var(--ink-2);font-weight:300;margin:0">
+              <a href="/tr/agb" target="_blank">Genel Şartlar ve Koşulları</a>, <a href="/tr/widerruf" target="_blank">Cayma Hakkı Bilgilendirmesini</a> ve <a href="/tr/datenschutz" target="_blank">Gizlilik Politikasını</a> kabul ediyorum.
+            </label>
+          </div>
+          <div class="checkout-actions">
+            <button type="button" class="btn-text" id="backToStep2">← Geri</button>
+            <button type="submit" class="btn-primary" id="checkoutSubmit">Siparişi Tamamla · CHF 0.00</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- BESTELLÜBERSICHT -->
+    <div class="checkout-summary">
+      <div class="checkout-summary-title">Sipariş Özeti</div>
+      <div id="checkoutItems"></div>
+      <p id="checkoutEmpty" style="font-size:14px;color:var(--ink-3);padding:20px 0">Sepetiniz boş.</p>
+
+      <div id="checkoutFooter" style="display:none">
+        <div class="promo-row">
+          <input type="text" placeholder="İndirim Kodu" id="promoCode">
+          <button type="button" id="promoBtn">Uygula</button>
+        </div>
+        <div class="summary-totals">
+          <div class="summary-totals-row"><span>Ara Toplam</span><span id="checkoutSubtotal">CHF 0.00</span></div>
+          <div class="summary-totals-row"><span>Kargo</span><span id="checkoutShipping">CHF 0.00</span></div>
+          <div class="summary-totals-row"><span>KDV %2.6 (dahil)</span><span id="checkoutMwst">CHF 0.00</span></div>
+          <div class="summary-totals-row grand"><span>Toplam</span><span id="checkoutTotal">CHF 0.00</span></div>
+        </div>
+        <div class="free-ship-track" style="margin-top:16px"><div class="free-ship-fill" id="freeShipFillCheckout"></div></div>
+        <div class="checkout-trust">
+          <span>Doğrudan Üreticiden</span>
+          <span>14 Gün İade Hakkı</span>
+          <span>Sorularınız mı var? WhatsApp 078 811 16 39</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- BESTÄTIGUNG -->
+  <div class="confirmation-block" id="checkoutSuccess" style="display:none">
+    <div class="confirmation-check">✓</div>
+    <h2>Siparişiniz İçin Teşekkürler</h2>
+    <p>Siparişinizi aldık ve ödeme bilgileriyle kısa süre içinde size dönüş yapacağız.</p>
+    <div class="confirmation-order-num" id="orderNumber"></div>
+    <a href="/tr/produkte" class="btn-primary">Alışverişe Devam Et</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <a href="/tr/" class="footer-brand">
+        <picture><source srcset="/assets/kaleburcu-icon.webp" type="image/webp"><img src="/assets/kaleburcu-icon.png" alt="Kaleburcu"></picture>
+        <span class="footer-brand-text">Kaleburcu</span>
+      </a>
+      <p class="footer-tagline">Naturel Sızma Zeytinyağı, Adana'nın Kaleburcu köyündeki aile bahçemizden doğrudan İsviçre'ye.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Mağaza</div>
+      <ul class="footer-links">
+        <li><a href="/tr/produkte">Ürün Yelpazesi</a></li>
+        <li><a href="/tr/produkte/olivenoel-500ml">Zeytinyağı 500&nbsp;ml</a></li>
+        <li><a href="/tr/#b2b">Restoran &amp; Toptan Satış</a></li>
+        <li><a href="/tr/kasse">Ödeme</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Kaleburcu Evi</div>
+      <ul class="footer-links">
+        <li><a href="/tr/uber-uns">Hakkımızda</a></li>
+        <li><a href="/tr/herkunft">Menşei</a></li>
+        <li><a href="/tr/#faq">SSS</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">İletişim</div>
+      <ul class="footer-links">
+        <li><a href="tel:+41788111639">078 811 16 39</a></li>
+        <li><a href="https://wa.me/41788111639" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:info@kaleburcu.ch">info@kaleburcu.ch</a></li>
+        <li><span>8706 Meilen, İsviçre</span></li>
+        <li><span>Pzt.–Cmt. 09:00–18:00</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span>&copy; 2026 Kaleburcu · Ümit Şen, İsviçre</span>
+      <a href="/tr/impressum">Yasal Bilgiler</a>
+      <a href="/tr/datenschutz">Gizlilik Politikası</a>
+      <a href="/tr/agb">Genel Şartlar ve Koşullar</a>
+      <a href="/tr/widerruf">Cayma Hakkı</a>
+    </div>
+    <div class="footer-pay">
+      <span class="footer-pay-label">Ödeme</span>
+      <span class="footer-pay-chip">Fatura</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WARENKORB -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <span class="cart-title">Sepet</span>
+    <button class="cart-close" id="cartClose" aria-label="Kapat">✕</button>
+  </div>
+  <div class="cart-list" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <span>Henüz boş. Yağımız 500&nbsp;ml ve 5 litrelik bidonlarda mevcuttur.</span>
+      <a href="/tr/#produkte" class="btn-primary" id="cartEmptyShop">Mağazaya Git</a>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFooter" style="display:none">
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Ara Toplam</span>
+      <span class="cart-subtotal-amount" id="cartTotal">CHF 0.00</span>
+    </div>
+    <p class="cart-shipping-note" id="cartShippingNote"></p>
+    <div class="free-ship-track"><div class="free-ship-fill" id="freeShipFill"></div></div>
+    <a href="/tr/kasse" class="cart-checkout-btn">Ödemeye Geç →</a>
+    <button class="cart-continue-btn" id="cartContinue">Alışverişe Devam Et</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/checkout.js"></script>
+</body>
+</html>

@@ -1,13 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.kaleburcu.ch/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.kaleburcu.ch/produkte</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.kaleburcu.ch/produkte/olivenoel-500ml</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.kaleburcu.ch/herkunft</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.kaleburcu.ch/uber-uns</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.kaleburcu.ch/kontakt</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.kaleburcu.ch/agb</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://www.kaleburcu.ch/widerruf</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://www.kaleburcu.ch/impressum</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://www.kaleburcu.ch/datenschutz</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.kaleburcu.ch/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/produkte</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/produkte"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/produkte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/produkte"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/produkte/olivenoel-500ml</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/produkte/olivenoel-500ml"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/produkte/olivenoel-500ml"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/produkte/olivenoel-500ml"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/herkunft</loc><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/herkunft"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/herkunft"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/herkunft"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/uber-uns</loc><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/uber-uns"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/kontakt</loc><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/kontakt"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/agb</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/agb"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/agb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/agb"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/widerruf</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/widerruf"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/widerruf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/widerruf"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/impressum</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/impressum"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/impressum"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/datenschutz</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/datenschutz"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/produkte</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/produkte"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/produkte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/produkte"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/produkte/olivenoel-500ml</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/produkte/olivenoel-500ml"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/produkte/olivenoel-500ml"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/produkte/olivenoel-500ml"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/herkunft</loc><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/herkunft"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/herkunft"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/herkunft"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/uber-uns</loc><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/uber-uns"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/kontakt</loc><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/kontakt"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/agb</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/agb"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/agb"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/agb"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/widerruf</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/widerruf"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/widerruf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/widerruf"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/impressum</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/impressum"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/impressum"/>
+  </url>
+  <url><loc>https://www.kaleburcu.ch/tr/datenschutz</loc><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://www.kaleburcu.ch/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.kaleburcu.ch/tr/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kaleburcu.ch/datenschutz"/>
+  </url>
 </urlset>

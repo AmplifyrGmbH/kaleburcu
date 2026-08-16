@@ -5,6 +5,86 @@ const SHIPPING_STANDARD = 8.90;
 
 function chf(n) { return 'CHF ' + n.toFixed(2); }
 
+// ─── I18N ───
+// Sprache kommt aus <html lang="...">; main.js/checkout.js teilen sich dieses Wörterbuch
+// (kein zweiter JS-Satz pro Sprache, um Drift zwischen Sprachversionen zu vermeiden).
+const LANG = document.documentElement.lang === 'tr' ? 'tr' : 'de';
+const STRINGS = {
+  de: {
+    soldOut: () => 'Ausverkauft',
+    addToCartLabel: () => 'In den Warenkorb',
+    outOfStockNote: () => 'Aktuell ausverkauft — nächste Ernte folgt.',
+    lowStock: n => `Nur noch ${n} auf Lager.`,
+    soldOutToast: () => 'Aktuell ausverkauft.',
+    alreadyMaxInCart: n => `Nur noch ${n} verfügbar — bereits im Warenkorb.`,
+    addedLimited: name => `${name} wurde hinzugefügt (auf verfügbaren Bestand begrenzt)`,
+    added: name => `${name} wurde hinzugefügt`,
+    subAbo: () => 'Abo · −10 %',
+    subOnce: () => 'Einmalig',
+    shipOnceNote: () => 'Einmalige Lieferung.',
+    shipAboLarge: () => 'Lieferung alle 4 Monate. Jederzeit kündbar.',
+    shipAboSmall: () => 'Lieferung alle 3 Monate. Jederzeit kündbar.',
+    freeShipIncluded: () => '✓ Kostenlose Lieferung inklusive',
+    freeShipRemaining: diff => `Noch <strong>CHF ${diff}</strong> bis zur kostenlosen Lieferung.`,
+    invalidEmail: () => 'Bitte gültige E-Mail eingeben.',
+    newsletterThanks: () => 'Danke — wir melden uns zur nächsten Ernte.',
+    fillRequired: () => 'Bitte alle Pflichtfelder ausfüllen.',
+    sending: () => 'Wird gesendet …',
+    contactThanks: () => 'Danke — Ihre Nachricht ist bei uns eingegangen. Wir melden uns bald.',
+    contactFailStatus: () => 'Senden fehlgeschlagen. Bitte kontaktieren Sie uns direkt per WhatsApp (078 811 16 39) oder info@kaleburcu.ch.',
+    contactFailToast: () => 'Senden fehlgeschlagen — bitte direkt anrufen/WhatsApp.',
+    sendMessageBtn: () => 'Nachricht senden',
+    weniger: () => 'Weniger',
+    mehr: () => 'Mehr',
+    articleCount: n => n + ' Artikel',
+    free: () => 'Kostenlos',
+    checkoutSubmitLabel: total => `Bestellung abschliessen · ${chf(total)}`,
+    invalidPromo: () => 'Dieser Rabattcode ist nicht gültig.',
+    emptyCart: () => 'Ihr Warenkorb ist leer.',
+    acceptTerms: () => 'Bitte AGB, Widerrufsbelehrung und Datenschutz akzeptieren.',
+    outOfStockCheckout: names => `Von ${names || 'einem Artikel'} ist nicht mehr genug auf Lager. Bitte Menge im Warenkorb anpassen.`,
+    orderNumberLabel: () => 'Bestellnummer ',
+    orderSendFailed: () => 'Bestellung konnte nicht gesendet werden. Bitte per WhatsApp (078 811 16 39) oder info@kaleburcu.ch bestellen.'
+  },
+  tr: {
+    soldOut: () => 'Tükendi',
+    addToCartLabel: () => 'Sepete Ekle',
+    outOfStockNote: () => 'Şu anda tükendi — yeni hasat yakında geliyor.',
+    lowStock: n => `Stokta sadece ${n} adet kaldı.`,
+    soldOutToast: () => 'Şu anda tükendi.',
+    alreadyMaxInCart: n => `Sadece ${n} adet mevcut — zaten sepetinizde.`,
+    addedLimited: name => `${name} sepete eklendi (mevcut stokla sınırlı)`,
+    added: name => `${name} sepete eklendi`,
+    subAbo: () => 'Abonelik · %10 indirim',
+    subOnce: () => 'Tek seferlik',
+    shipOnceNote: () => 'Tek seferlik teslimat.',
+    shipAboLarge: () => '4 ayda bir teslimat. İstediğiniz zaman iptal edilebilir.',
+    shipAboSmall: () => '3 ayda bir teslimat. İstediğiniz zaman iptal edilebilir.',
+    freeShipIncluded: () => '✓ Ücretsiz teslimat dahildir',
+    freeShipRemaining: diff => `Ücretsiz teslimata <strong>CHF ${diff}</strong> kaldı.`,
+    invalidEmail: () => 'Lütfen geçerli bir e-posta adresi girin.',
+    newsletterThanks: () => 'Teşekkürler — bir sonraki hasatta sizinle iletişime geçeceğiz.',
+    fillRequired: () => 'Lütfen tüm zorunlu alanları doldurun.',
+    sending: () => 'Gönderiliyor …',
+    contactThanks: () => 'Teşekkürler — mesajınız bize ulaştı. En kısa sürede sizinle iletişime geçeceğiz.',
+    contactFailStatus: () => 'Gönderim başarısız oldu. Lütfen bizimle doğrudan WhatsApp (078 811 16 39) veya info@kaleburcu.ch üzerinden iletişime geçin.',
+    contactFailToast: () => 'Gönderim başarısız — lütfen doğrudan arayın veya WhatsApp yazın.',
+    sendMessageBtn: () => 'Mesajı Gönder',
+    weniger: () => 'Azalt',
+    mehr: () => 'Artır',
+    articleCount: n => n + ' Ürün',
+    free: () => 'Ücretsiz',
+    checkoutSubmitLabel: total => `Siparişi Tamamla · ${chf(total)}`,
+    invalidPromo: () => 'Bu indirim kodu geçerli değil.',
+    emptyCart: () => 'Sepetiniz boş.',
+    acceptTerms: () => 'Lütfen Genel Şartlar, Cayma Hakkı ve Gizlilik Politikasını kabul edin.',
+    outOfStockCheckout: names => `${names || 'Bir üründen'} yeterli stok kalmadı. Lütfen sepetteki miktarı güncelleyin.`,
+    orderNumberLabel: () => 'Sipariş Numarası ',
+    orderSendFailed: () => 'Sipariş gönderilemedi. Lütfen WhatsApp (078 811 16 39) veya info@kaleburcu.ch üzerinden sipariş verin.'
+  }
+};
+function t(key, ...args) { return STRINGS[LANG][key](...args); }
+
 // ─── MOBILE MENU ───
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -120,9 +200,9 @@ function renderCart() {
         <div class="cart-line-name">${item.name}</div>
         <div class="cart-line-meta">${item.meta || ''}</div>
         <div class="cart-stepper">
-          <button class="qty-minus" data-id="${item.id}" aria-label="Weniger">−</button>
+          <button class="qty-minus" data-id="${item.id}" aria-label="${t('weniger')}">−</button>
           <span>${item.qty}</span>
-          <button class="qty-plus" data-id="${item.id}" aria-label="Mehr">+</button>
+          <button class="qty-plus" data-id="${item.id}" aria-label="${t('mehr')}">+</button>
         </div>
       </div>
       <div class="cart-line-sum">${chf(item.price * item.qty)}</div>
@@ -134,10 +214,10 @@ function renderCart() {
   totalEl.textContent = chf(total);
 
   if (total >= SHIPPING_FREE_FROM) {
-    noteEl.innerHTML = '✓ Kostenlose Lieferung inklusive';
+    noteEl.innerHTML = t('freeShipIncluded');
   } else {
     const diff = (SHIPPING_FREE_FROM - total).toFixed(2);
-    noteEl.innerHTML = `Noch <strong>CHF ${diff}</strong> bis zur kostenlosen Lieferung.`;
+    noteEl.innerHTML = t('freeShipRemaining', diff);
   }
   if (fillEl) fillEl.style.width = Math.min(100, (total / SHIPPING_FREE_FROM) * 100) + '%';
 }
@@ -155,7 +235,7 @@ if (cartItemsEl) {
       if (item.qty < ceiling) {
         item.qty++;
       } else {
-        showToast(`Nur noch ${ceiling} auf Lager.`);
+        showToast(t('lowStock', ceiling));
       }
     } else if (e.target.classList.contains('qty-minus')) {
       item.qty--;
@@ -200,19 +280,19 @@ function applyStockUI() {
 
     if (available <= 0) {
       card.classList.add('sold-out');
-      if (addBtn) { addBtn.disabled = true; addBtn.textContent = 'Ausverkauft'; }
+      if (addBtn) { addBtn.disabled = true; addBtn.textContent = t('soldOut'); }
       if (!note) { note = document.createElement('div'); note.className = 'stock-note stock-note-out'; buyBlock.insertBefore(note, addBtn); }
-      note.textContent = 'Aktuell ausverkauft — nächste Ernte folgt.';
+      note.textContent = t('outOfStockNote');
     } else if (available <= LOW_STOCK_THRESHOLD) {
       if (!note) { note = document.createElement('div'); note.className = 'stock-note'; buyBlock.insertBefore(note, addBtn); }
-      note.textContent = `Nur noch ${available} auf Lager.`;
+      note.textContent = t('lowStock', available);
     }
   });
 
   if (stickyAddBtn) {
     const available = stockAvailable('small');
     stickyAddBtn.disabled = available <= 0;
-    stickyAddBtn.textContent = available <= 0 ? 'Ausverkauft' : 'In den Warenkorb';
+    stickyAddBtn.textContent = available <= 0 ? t('soldOut') : t('addToCartLabel');
   }
 
   document.dispatchEvent(new CustomEvent('stockloaded'));
@@ -272,14 +352,14 @@ function addToCart(id, name, price, img, isSub, qty) {
   qty = qty || 1;
   const finalId = isSub ? id + ':abo' : id;
   const finalPrice = isSub ? price * 0.9 : price;
-  const meta = isSub ? 'Abo · −10 %' : 'Einmalig';
+  const meta = isSub ? t('subAbo') : t('subOnce');
   const existing = cart.find(i => i.id === finalId);
   const currentQty = existing ? existing.qty : 0;
   const ceiling = maxQtyFor(finalId);
   const nextQty = Math.min(currentQty + qty, ceiling);
 
   if (nextQty <= currentQty) {
-    showToast(ceiling <= 0 ? 'Aktuell ausverkauft.' : `Nur noch ${ceiling} verfügbar — bereits im Warenkorb.`);
+    showToast(ceiling <= 0 ? t('soldOutToast') : t('alreadyMaxInCart', ceiling));
     return;
   }
 
@@ -291,7 +371,7 @@ function addToCart(id, name, price, img, isSub, qty) {
   saveCart();
   updateCartBadge();
   renderCart();
-  showToast(nextQty < currentQty + qty ? `${name} wurde hinzugefügt (auf verfügbaren Bestand begrenzt)` : `${name} wurde hinzugefügt`);
+  showToast(nextQty < currentQty + qty ? t('addedLimited', name) : t('added', name));
   openCart();
 }
 
@@ -302,8 +382,8 @@ document.querySelectorAll('.product-card').forEach(card => {
   const unitId  = card.dataset.id;
   const isLarge = unitId === 'large';
   const notes = {
-    '0': isLarge ? 'Einmalige Lieferung.' : 'Einmalige Lieferung.',
-    '1': isLarge ? 'Lieferung alle 4 Monate. Jederzeit kündbar.' : 'Lieferung alle 3 Monate. Jederzeit kündbar.'
+    '0': t('shipOnceNote'),
+    '1': isLarge ? t('shipAboLarge') : t('shipAboSmall')
   };
 
   subBtns.forEach(btn => {
@@ -329,7 +409,8 @@ const stickyBar = document.getElementById('stickyBar');
 const stickyAddBtn = document.getElementById('stickyAddBtn');
 if (stickyAddBtn) {
   stickyAddBtn.addEventListener('click', () => {
-    addToCart('small', 'Natives Olivenöl Extra · 500 ml', 15.00, 'assets/shop-500ml.webp', false);
+    const nameEl = document.querySelector('.sticky-name');
+    addToCart('small', nameEl ? nameEl.textContent : 'Natives Olivenöl Extra · 500 ml', 15.00, 'assets/shop-500ml.webp', false);
   });
 }
 
@@ -341,10 +422,10 @@ if (newsletterForm) {
     const input = document.getElementById('newsletterEmail');
     const note = document.getElementById('newsletterNote');
     if (!input.value.includes('@')) {
-      showToast('Bitte gültige E-Mail eingeben.');
+      showToast(t('invalidEmail'));
       return;
     }
-    note.textContent = 'Danke — wir melden uns zur nächsten Ernte.';
+    note.textContent = t('newsletterThanks');
     note.style.color = 'var(--gold)';
     input.value = '';
   });
@@ -365,13 +446,13 @@ if (contactForm) {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
 
     if (!firstName || !lastName || !email || !subjectEl.value || !message) {
-      showToast('Bitte alle Pflichtfelder ausfüllen.');
+      showToast(t('fillRequired'));
       return;
     }
 
     const subjectLabel = subjectEl.options[subjectEl.selectedIndex].text;
 
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet …'; }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t('sending'); }
 
     try {
       const res = await fetch('contact-handler.php', {
@@ -384,7 +465,7 @@ if (contactForm) {
       if (result.ok) {
         contactForm.reset();
         if (status) {
-          status.textContent = 'Danke — Ihre Nachricht ist bei uns eingegangen. Wir melden uns bald.';
+          status.textContent = t('contactThanks');
           status.style.color = 'var(--gold-dark)';
           status.style.display = 'block';
         }
@@ -393,13 +474,13 @@ if (contactForm) {
       }
     } catch (err) {
       if (status) {
-        status.textContent = 'Senden fehlgeschlagen. Bitte kontaktieren Sie uns direkt per WhatsApp (078 811 16 39) oder info@kaleburcu.ch.';
+        status.textContent = t('contactFailStatus');
         status.style.color = '#b0623c';
         status.style.display = 'block';
       }
-      showToast('Senden fehlgeschlagen — bitte direkt anrufen/WhatsApp.');
+      showToast(t('contactFailToast'));
     } finally {
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Nachricht senden'; }
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = t('sendMessageBtn'); }
     }
   });
 }
@@ -494,7 +575,7 @@ if (filterRow) {
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
-    if (countEl) countEl.textContent = visible + (visible === 1 ? ' Artikel' : ' Artikel');
+    if (countEl) countEl.textContent = t('articleCount', visible);
   }
 
   chips.forEach(chip => {

@@ -168,6 +168,12 @@ svg{ display:block; }
   transition:background .25s var(--ease), color .25s var(--ease);
 }
 .nav-cta:hover{ background:var(--gold); border-color:var(--gold); color:var(--forest); }
+.lang-switch{
+  font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--forest); border:1px solid rgba(25,42,36,.25); padding:8px 12px; flex:none;
+  transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.lang-switch:hover{ background:var(--forest); color:var(--cream); border-color:var(--forest); }
 .cart-btn, .hamburger{
   width:44px; height:44px; display:flex; align-items:center; justify-content:center;
   border:1px solid rgba(25,42,36,.22); position:relative; flex:none;
